@@ -24,7 +24,13 @@ import wavB from "../assets/notes/B.wav";
 // export const noteASharp = new Audio(wavASharp);
 // export const noteB = new Audio(wavB);
 
-export default {
+export type Note = {
+  audio: HTMLAudioElement;
+  name: string;
+  sharp: boolean;
+};
+
+export default <{ [key: string]: Note }>{
   noteB: {
     audio: new Audio(wavB),
     name: "B",

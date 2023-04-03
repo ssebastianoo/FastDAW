@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import notes from "./lib/notes";
+  import type { Note } from "./lib/notes";
 
   let bpm: number = 60;
   let interval;
@@ -8,9 +9,18 @@
   let songLength = 100;
   let playing = false;
 
-  let beats = {};
+  type Beats = {
+    [key: string]: {
+      note: Note;
+    }[];
+  };
 
-  let coloredBlocks = [];
+  let beats: Beats = {};
+
+  let coloredBlocks: {
+    note: string;
+    block: number;
+  }[] = [];
 
   function player() {
     if (playing) {
@@ -118,8 +128,7 @@
               <div
                 class={coloredBlocks.find(
                   (block) =>
-                    block.note === notes[note].name &&
-                    block.block === index.toString()
+                    block.note === notes[note].name && block.block === index
                 )
                   ? "block colored"
                   : "block"}
@@ -152,11 +161,13 @@
                   if (color) {
                     coloredBlocks.push({
                       note: notes[note].name,
-                      block: block,
+                      block: parseInt(block),
                     });
                   } else {
                     const blockIndex = coloredBlocks.findIndex(
-                      (block) => block.note === notes[note].name
+                      (blockCell) =>
+                        blockCell.note === notes[note].name &&
+                        blockCell.block === parseInt(block)
                     );
                     coloredBlocks.splice(blockIndex, 1);
                   }
