@@ -1,11 +1,13 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { beats, songLength, coloredBlocks } from "./store";
+  import notes from "./notes";
 
   let bpm: number = 60;
   let interval;
   let currentBeat = 0;
   let playing = false;
+  let fakeInput: HTMLInputElement;
 
   function player() {
     if (playing) {
@@ -30,6 +32,27 @@
   }
 
   onMount(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const beatsParam = urlParams.get("beats");
+
+    if (beatsParam) {
+      const notesAsArray = Object.entries(notes).map((x) => x[1]);
+
+      $beats = JSON.parse(decodeURIComponent(beatsParam));
+      Object.keys($beats).forEach((beat) => {
+        $beats[beat].forEach((note) => {
+          note.note.audio = notesAsArray.find(
+            (x) => x.name === note.note.name
+          ).audio;
+
+          $coloredBlocks = [
+            ...$coloredBlocks,
+            { note: note.note.name, block: parseInt(beat) },
+          ];
+        });
+      });
+    }
+
     interval = setInterval(player, ((60 / bpm) * 1000) / 4);
 
     document.addEventListener("keydown", (e) => {
@@ -39,6 +62,8 @@
     });
   });
 </script>
+
+<input type="hidden" bind:this={fakeInput} />
 
 <div class="controls">
   <div class="left">
@@ -82,6 +107,22 @@
       }}
     />
   </div>
+  <div class="right">
+    <button
+      on:click|preventDefault={(e) => {
+        const exportUrl = new URL(window.location.href);
+        exportUrl.searchParams.set("beats", JSON.stringify($beats));
+
+        fakeInput.value = exportUrl.href;
+        fakeInput.type = "text";
+        fakeInput.select();
+        fakeInput.setSelectionRange(0, 99999);
+        navigator.clipboard.writeText(fakeInput.value);
+        fakeInput.type = "hidden";
+        alert("Copied URL to clipboard");
+      }}>export</button
+    >
+  </div>
 </div>
 
 <style lang="scss">
@@ -96,31 +137,31 @@
     .left {
       display: flex;
       gap: 15px;
+    }
 
-      input {
-        all: unset;
-        width: 45px;
-        background-color: $lightOrange;
-        padding: 4px 10px;
-        color: black;
-        border: 1px solid black;
-        transition-duration: 0.1s;
-      }
+    input {
+      all: unset;
+      width: 45px;
+      background-color: $lightOrange;
+      padding: 4px 10px;
+      color: black;
+      border: 1px solid black;
+      transition-duration: 0.1s;
+    }
 
-      button {
-        all: unset;
-        background-color: $lightOrange;
-        padding: 4px 10px;
-        cursor: pointer;
-        color: black;
-        border: 1px solid black;
-        transition-duration: 0.1s;
-      }
+    button {
+      all: unset;
+      background-color: $lightOrange;
+      padding: 4px 10px;
+      cursor: pointer;
+      color: black;
+      border: 1px solid black;
+      transition-duration: 0.1s;
+    }
 
-      button:hover {
-        box-shadow: 5px 5px black;
-        transform: translate(-5px, -5px);
-      }
+    button:hover {
+      box-shadow: 5px 5px black;
+      transform: translate(-5px, -5px);
     }
   }
 </style>
