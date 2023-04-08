@@ -37,8 +37,12 @@
 
     if (beatsParam) {
       const notesAsArray = Object.entries(notes).map((x) => x[1]);
+      const loadedData = JSON.parse(window.atob(beatsParam));
 
-      $beats = JSON.parse(window.atob(beatsParam));
+      $beats = loadedData.beats;
+      bpm = loadedData.bpm;
+      $songLength = loadedData.songLength;
+
       Object.keys($beats).forEach((beat) => {
         $beats[beat].forEach((note) => {
           note.note.audio = notesAsArray.find(
@@ -111,9 +115,16 @@
     <button
       on:click|preventDefault={(e) => {
         const exportUrl = new URL(window.location.href);
+
+        const exportData = {
+          bpm: bpm,
+          beats: $beats,
+          songLength: $songLength,
+        };
+
         exportUrl.searchParams.set(
           "beats",
-          window.btoa(JSON.stringify($beats))
+          window.btoa(JSON.stringify(exportData))
         );
 
         fakeInput.value = exportUrl.href;

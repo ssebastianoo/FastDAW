@@ -2,7 +2,13 @@
   import notes from "./notes";
   import { songLength, beats, coloredBlocks, playlist } from "./store";
 
-  let scrollBar: HTMLDivElement;
+  import { onMount } from "svelte";
+
+  onMount(() => {
+    for (const [_, data] of Object.entries(notes)) {
+      data.audio.load();
+    }
+  });
 
   function setBlock(e: MouseEvent, note: string) {
     const target = e.currentTarget as HTMLDivElement;
@@ -46,7 +52,8 @@
       $coloredBlocks.splice(blockIndex, 1);
     }
     $coloredBlocks = $coloredBlocks;
-    $beats = $beats;
+    console.log($beats);
+    // $beats = $beats;
   }
 </script>
 

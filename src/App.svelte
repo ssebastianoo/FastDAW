@@ -3,6 +3,20 @@
   import Playlist from "./lib/Playlist.svelte";
   import Controls from "./lib/Controls.svelte";
   import Scrollbar from "./lib/Scrollbar.svelte";
+
+  import { onMount } from "svelte";
+
+  onMount(() => {
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker
+        .register("/sw.js", {
+          scope: "/",
+        })
+        .then((registration) => {
+          registration.update();
+        });
+    }
+  });
 </script>
 
 <main>
