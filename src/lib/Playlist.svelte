@@ -57,16 +57,6 @@
   }
 </script>
 
-<!-- <div class="scroll-wrap">
-  <div
-    class="scrollbar-parent"
-    bind:this={scrollBar}
-    style={"width:" + scrollBarParentWidth}
-  >
-    <div class="scrollbar" style={"width:" + scrollBarWidth} />
-  </div>
-</div> -->
-
 <div class="playlist" bind:this={$playlist}>
   <div class="indicator" />
   <div class="lines">
@@ -132,10 +122,6 @@
 
       &:nth-child(4n) {
         border-right: 2px solid black;
-      }
-
-      &:last-child {
-        border-right: none;
       }
     }
 

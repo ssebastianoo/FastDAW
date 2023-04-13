@@ -17,7 +17,9 @@
   </div>
 </div>
 
-<style>
+<style lang="scss">
+  @import "../variables";
+
   .wrapper {
     max-width: 900px;
     width: 100%;

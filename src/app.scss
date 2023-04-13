@@ -1,6 +1,17 @@
+@import "./variables";
+
 body {
   background: linear-gradient(45deg, rgb(87, 45, 45), rgba(24, 53, 10, 0.7));
   color: white;
   font-family: sans-serif;
   margin: 0;
+  scrollbar-color: $orange $lightOrange;
+}
+
+::-webkit-scrollbar {
+  background-color: $lightOrange;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $orange;
 }

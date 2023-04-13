@@ -5,6 +5,66 @@ export type Note = {
 };
 
 export default <{ [key: string]: Note }>{
+  noteB5: {
+    audio: new Audio("/notes/B5.wav"),
+    name: "B5",
+    sharp: false,
+  },
+  noteASharp5: {
+    audio: new Audio("/notes/ASharp5.wav"),
+    name: "A#5",
+    sharp: true,
+  },
+  noteA5: {
+    audio: new Audio("/notes/A5.wav"),
+    name: "A5",
+    sharp: false,
+  },
+  noteGSharp5: {
+    audio: new Audio("/notes/GSharp5.wav"),
+    name: "G#5",
+    sharp: true,
+  },
+  noteG5: {
+    audio: new Audio("/notes/G5.wav"),
+    name: "G5",
+    sharp: false,
+  },
+  noteFSharp5: {
+    audio: new Audio("/notes/FSharp5.wav"),
+    name: "F#5",
+    sharp: true,
+  },
+  noteF5: {
+    audio: new Audio("/notes/F5.wav"),
+    name: "F5",
+    sharp: false,
+  },
+  noteE5: {
+    audio: new Audio("/notes/E5.wav"),
+    name: "E5",
+    sharp: false,
+  },
+  noteDSharp5: {
+    audio: new Audio("/notes/DSharp5.wav"),
+    name: "D#5",
+    sharp: true,
+  },
+  noteD5: {
+    audio: new Audio("/notes/D5.wav"),
+    name: "D5",
+    sharp: false,
+  },
+  noteCSharp5: {
+    audio: new Audio("/notes/CSharp5.wav"),
+    name: "C#5",
+    sharp: true,
+  },
+  noteC5: {
+    audio: new Audio("/notes/C5.wav"),
+    name: "C5",
+    sharp: false,
+  },
   noteB4: {
     audio: new Audio("/notes/B4.wav"),
     name: "B4",

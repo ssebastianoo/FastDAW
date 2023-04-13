@@ -3,6 +3,7 @@
   import Playlist from "./lib/Playlist.svelte";
   import Controls from "./lib/Controls.svelte";
   import Scrollbar from "./lib/Scrollbar.svelte";
+  import Presets from "./lib/Presets.svelte";
 
   import { onMount } from "svelte";
 
@@ -25,11 +26,14 @@
   </header>
 
   <div class="container">
+    <Presets />
     <Controls />
-    <Scrollbar />
-    <div class="workspace">
-      <Keys />
-      <Playlist />
+    <div class="workspace-wrapper">
+      <Scrollbar />
+      <div class="workspace">
+        <Keys />
+        <Playlist />
+      </div>
     </div>
   </div>
   <footer>
@@ -59,7 +63,15 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
+  }
+
+  .workspace-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
   }
 
   .workspace {

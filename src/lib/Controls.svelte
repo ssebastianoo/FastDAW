@@ -23,7 +23,6 @@
         currentBeat = 0;
       }
     }
-    //
 
     document.documentElement.style.setProperty(
       "--indicator-position",

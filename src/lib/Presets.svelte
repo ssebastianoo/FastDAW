@@ -1,0 +1,52 @@
+<script lant="ts">
+  const presets = [
+    {
+      name: "Für Elise",
+      url: "/?beats=eyJicG0iOjYwLCJiZWF0cyI6eyIwIjpbeyJub3RlIjp7ImF1ZGlvIjp7fSwibmFtZSI6IkU1Iiwic2hhcnAiOmZhbHNlfX1dLCIxIjpbeyJub3RlIjp7ImF1ZGlvIjp7fSwibmFtZSI6IkQjNSIsInNoYXJwIjp0cnVlfX1dLCIyIjpbeyJub3RlIjp7ImF1ZGlvIjp7fSwibmFtZSI6IkU1Iiwic2hhcnAiOmZhbHNlfX1dLCIzIjpbeyJub3RlIjp7ImF1ZGlvIjp7fSwibmFtZSI6IkQjNSIsInNoYXJwIjp0cnVlfX1dLCI0IjpbeyJub3RlIjp7ImF1ZGlvIjp7fSwibmFtZSI6IkU1Iiwic2hhcnAiOmZhbHNlfX1dLCI1IjpbeyJub3RlIjp7ImF1ZGlvIjp7fSwibmFtZSI6IkI0Iiwic2hhcnAiOmZhbHNlfX1dLCI2IjpbeyJub3RlIjp7ImF1ZGlvIjp7fSwibmFtZSI6IkQ1Iiwic2hhcnAiOmZhbHNlfX1dLCI3IjpbeyJub3RlIjp7ImF1ZGlvIjp7fSwibmFtZSI6IkM1Iiwic2hhcnAiOmZhbHNlfX1dLCI4IjpbeyJub3RlIjp7ImF1ZGlvIjp7fSwibmFtZSI6IkE0Iiwic2hhcnAiOmZhbHNlfX1dLCI5IjpbXSwiMTAiOltdLCIxMSI6W10sIjEyIjpbeyJub3RlIjp7ImF1ZGlvIjp7fSwibmFtZSI6IkM0Iiwic2hhcnAiOmZhbHNlfX1dLCIxMyI6W3sibm90ZSI6eyJhdWRpbyI6e30sIm5hbWUiOiJFNCIsInNoYXJwIjpmYWxzZX19XSwiMTQiOlt7Im5vdGUiOnsiYXVkaW8iOnt9LCJuYW1lIjoiQTQiLCJzaGFycCI6ZmFsc2V9fV0sIjE1IjpbeyJub3RlIjp7ImF1ZGlvIjp7fSwibmFtZSI6IkI0Iiwic2hhcnAiOmZhbHNlfX1dLCIyMCI6W3sibm90ZSI6eyJhdWRpbyI6e30sIm5hbWUiOiJFNCIsInNoYXJwIjpmYWxzZX19XSwiMjEiOlt7Im5vdGUiOnsiYXVkaW8iOnt9LCJuYW1lIjoiRyM0Iiwic2hhcnAiOnRydWV9fV0sIjIyIjpbeyJub3RlIjp7ImF1ZGlvIjp7fSwibmFtZSI6IkI0Iiwic2hhcnAiOmZhbHNlfX1dLCIyMyI6W3sibm90ZSI6eyJhdWRpbyI6e30sIm5hbWUiOiJDNSIsInNoYXJwIjpmYWxzZX19XSwiMjQiOltdLCIyNSI6W3sibm90ZSI6eyJhdWRpbyI6e30sIm5hbWUiOiJFNCIsInNoYXJwIjpmYWxzZX19XSwiMjYiOltdfSwic29uZ0xlbmd0aCI6Mjd9",
+    },
+    {
+      name: "Adventure Time",
+      url: "/?beats=eyJicG0iOjYwLCJiZWF0cyI6eyIwIjpbeyJub3RlIjp7ImF1ZGlvIjp7fSwibmFtZSI6IkYjNCIsInNoYXJwIjp0cnVlfX1dLCIxIjpbeyJub3RlIjp7ImF1ZGlvIjp7fSwibmFtZSI6Ikc0Iiwic2hhcnAiOmZhbHNlfX1dLCIyIjpbeyJub3RlIjp7ImF1ZGlvIjp7fSwibmFtZSI6IkE0Iiwic2hhcnAiOmZhbHNlfX1dLCIzIjpbXSwiNCI6W10sIjUiOltdLCI2IjpbeyJub3RlIjp7ImF1ZGlvIjp7fSwibmFtZSI6IkQ1Iiwic2hhcnAiOmZhbHNlfX1dLCI4IjpbXSwiOSI6W3sibm90ZSI6eyJhdWRpbyI6e30sIm5hbWUiOiJCNCIsInNoYXJwIjpmYWxzZX19XSwiMTIiOltdLCIxMyI6W3sibm90ZSI6eyJhdWRpbyI6e30sIm5hbWUiOiJENSIsInNoYXJwIjpmYWxzZX19XSwiMTQiOlt7Im5vdGUiOnsiYXVkaW8iOnt9LCJuYW1lIjoiRTUiLCJzaGFycCI6ZmFsc2V9fV0sIjE1IjpbeyJub3RlIjp7ImF1ZGlvIjp7fSwibmFtZSI6IkYjNSIsInNoYXJwIjp0cnVlfX1dLCIxNiI6W3sibm90ZSI6eyJhdWRpbyI6e30sIm5hbWUiOiJFNSIsInNoYXJwIjpmYWxzZX19XSwiMTciOltdLCIxOCI6W3sibm90ZSI6eyJhdWRpbyI6e30sIm5hbWUiOiJENSIsInNoYXJwIjpmYWxzZX19XSwiMTkiOltdLCIyMCI6W3sibm90ZSI6eyJhdWRpbyI6e30sIm5hbWUiOiJFNSIsInNoYXJwIjpmYWxzZX19XSwiMjEiOltdLCIyMiI6W3sibm90ZSI6eyJhdWRpbyI6e30sIm5hbWUiOiJCNCIsInNoYXJwIjpmYWxzZX19XSwiMjMiOltdLCIyNCI6W3sibm90ZSI6eyJhdWRpbyI6e30sIm5hbWUiOiJENSIsInNoYXJwIjpmYWxzZX19XSwiMjYiOltdLCIyNyI6W10sIjI4IjpbeyJub3RlIjp7ImF1ZGlvIjp7fSwibmFtZSI6IkI0Iiwic2hhcnAiOmZhbHNlfX1dLCIyOSI6W10sIjMwIjpbeyJub3RlIjp7ImF1ZGlvIjp7fSwibmFtZSI6IkE0Iiwic2hhcnAiOmZhbHNlfX1dLCIzMSI6W3sibm90ZSI6eyJhdWRpbyI6e30sIm5hbWUiOiJENSIsInNoYXJwIjpmYWxzZX19XSwiMzIiOltdLCIzMyI6W3sibm90ZSI6eyJhdWRpbyI6e30sIm5hbWUiOiJENSIsInNoYXJwIjpmYWxzZX19XSwiMzQiOltdLCIzNSI6W3sibm90ZSI6eyJhdWRpbyI6e30sIm5hbWUiOiJGIzQiLCJzaGFycCI6dHJ1ZX19XSwiMzYiOltdLCIzNyI6W3sibm90ZSI6eyJhdWRpbyI6e30sIm5hbWUiOiJFNCIsInNoYXJwIjpmYWxzZX19XSwiMzgiOltdLCIzOSI6W10sIjQwIjpbXX0sInNvbmdMZW5ndGgiOjQxfQ%3D%3D",
+    },
+  ];
+</script>
+
+<div class="presets">
+  {#each presets as preset}
+    <a href={preset.url}>
+      <div class="preset">
+        <p>{preset.name}</p>
+      </div>
+    </a>
+  {/each}
+</div>
+
+<style lang="scss">
+  @import "../variables.scss";
+
+  .presets {
+    display: flex;
+    gap: 20px;
+  }
+
+  a {
+    color: black;
+    text-decoration: none;
+  }
+
+  .preset {
+    background-color: $lightOrange;
+    border: 1px solid black;
+
+    p {
+      margin: 0;
+      padding: 10px;
+    }
+
+    &:hover {
+      background-color: $orange;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+</style>
