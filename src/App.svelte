@@ -26,6 +26,18 @@
     ) {
       $isMobile = true;
     }
+
+    document.documentElement.style.setProperty(
+      "--fh",
+      `${window.innerHeight}px`
+    );
+
+    window.addEventListener("resize", () => {
+      document.documentElement.style.setProperty(
+        "--fh",
+        `${window.innerHeight}px`
+      );
+    });
   });
 </script>
 
@@ -57,7 +69,7 @@
 
   main {
     padding: 40px;
-    min-height: calc(100vh - 80px);
+    min-height: calc(var(--fh) - 80px);
   }
 
   header {
@@ -69,7 +81,7 @@
   }
 
   .container {
-    min-height: calc(100vh - 80px - $headerHeight * 2);
+    min-height: calc(var(--fh) - 80px - $headerHeight * 2);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -107,12 +119,12 @@
   @media (max-width: 454px) {
     main {
       padding: 20px;
-      min-height: calc(100vh - 40px);
+      min-height: calc(var(--fh) - 40px);
     }
 
     .container {
       gap: 10px;
-      min-height: calc(100vh - 40px - $headerHeight * 2);
+      min-height: calc(var(--fh) - 40px - $headerHeight * 2);
     }
   }
 
