@@ -16,3 +16,4 @@ export const beats = writable<Beats>({});
 export const songLength = writable(100);
 export const coloredBlocks = writable<coloredBlock[]>([]);
 export const playlist = writable<HTMLDivElement>();
+export const isMobile = writable(false);

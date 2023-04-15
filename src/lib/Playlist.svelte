@@ -1,6 +1,12 @@
 <script lang="ts">
   import notes from "./notes";
-  import { songLength, beats, coloredBlocks, playlist } from "./store";
+  import {
+    songLength,
+    beats,
+    coloredBlocks,
+    playlist,
+    isMobile,
+  } from "./store";
 
   import { onMount } from "svelte";
 
@@ -57,7 +63,10 @@
   }
 </script>
 
-<div class="playlist" bind:this={$playlist}>
+<div
+  class={"playlist " + ($isMobile ? "pl-mobile" : "pl-desktop")}
+  bind:this={$playlist}
+>
   <div class="indicator" />
   <div class="lines">
     {#each Object.keys(notes) as note}
@@ -85,10 +94,17 @@
 <style lang="scss">
   @import "../variables";
 
+  .pl-desktop {
+    overflow-x: hidden;
+  }
+
+  .pl-mobile {
+    overflow-x: auto;
+  }
+
   .playlist {
     width: 85%;
     height: 100%;
-    overflow-x: hidden;
     position: relative;
     background-color: $lightOrange;
     border-right: 1px solid black;
@@ -135,6 +151,12 @@
       .block {
         height: 20px;
       }
+    }
+  }
+
+  @media (max-width: 454px) {
+    .playlist {
+      width: 80%;
     }
   }
 </style>

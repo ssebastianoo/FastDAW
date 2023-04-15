@@ -6,6 +6,7 @@
   import Presets from "./lib/Presets.svelte";
 
   import { onMount } from "svelte";
+  import { isMobile } from "./lib/store";
 
   onMount(() => {
     if ("serviceWorker" in navigator) {
@@ -16,6 +17,14 @@
         .then((registration) => {
           registration.update();
         });
+    }
+
+    if (
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      )
+    ) {
+      $isMobile = true;
     }
   });
 </script>
@@ -29,7 +38,9 @@
     <Presets />
     <Controls />
     <div class="workspace-wrapper">
-      <Scrollbar />
+      {#if !$isMobile}
+        <Scrollbar />
+      {/if}
       <div class="workspace">
         <Keys />
         <Playlist />
@@ -76,10 +87,10 @@
 
   .workspace {
     display: flex;
+    overflow-y: auto;
     width: 100%;
     max-width: 900px;
     max-height: 400px;
-    overflow-y: auto;
 
     &::--webkit-scrollbar {
       background-color: red;
@@ -91,5 +102,29 @@
     align-items: center;
     justify-content: center;
     height: 36px;
+  }
+
+  @media (max-width: 454px) {
+    main {
+      padding: 20px;
+      min-height: calc(100vh - 40px);
+    }
+
+    .container {
+      gap: 10px;
+      min-height: calc(100vh - 40px - $headerHeight * 2);
+    }
+  }
+
+  @media (min-height: 700px) {
+    .workspace {
+      max-height: 490px;
+    }
+  }
+
+  @media (min-height: 900px) {
+    .workspace {
+      max-height: 620px;
+    }
   }
 </style>

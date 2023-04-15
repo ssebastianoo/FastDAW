@@ -66,4 +66,10 @@
       }
     }
   }
+
+  @media (max-width: 454px) {
+    .keys {
+      width: 20%;
+    }
+  }
 </style>
